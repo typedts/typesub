@@ -15,7 +15,7 @@
         }
     }
 
-    <span class="hljs-keyword">const</span> pubsub = createPubsub&lt;MyEvents&gt;()
+    const pubsub = createPubsub<MyEvents>();
 
 </code></pre>
 
@@ -25,10 +25,10 @@
         <span class="hljs-built_in">console</span>.log(data.place)
     })
     
-    <span class="hljs-comment">// Registering multiple listeners</span>
+    // Registering multiple listeners</span>
     
-    pubusb.listen(<span class="hljs-string">"LOADING_DONE"</span>, (data) =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Second listener"</span>)
+    pubusb.listen("LOADING_DONE", (data) => {
+        console.log("Second listener")
     })
 </code></pre>
 <p class="has-line-data" data-line-start="43" data-line-end="44">To publish events</p>
