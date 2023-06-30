@@ -1,4 +1,4 @@
-import { describe, it, expect, expectTypeOf } from "vitest";
+import { describe, it, expectTypeOf } from "vitest";
 import { createPubSub } from "..";
 import { PubSub } from "../types";
 
@@ -34,7 +34,7 @@ describe("pubsub test", () => {
   it("Should work with multiple consumers", () => {
     const pubsub = createPubSub<MyEvents>();
 
-    pubsub.listen("CHECKOUT", (d) => {
+    pubsub.listen("CHECKOUT", (_) => {
       console.log("First");
     });
 

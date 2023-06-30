@@ -25,6 +25,13 @@ Install typesub with npm, yarn or pnpm etc
 Create a pubsub instance using a type
 
 ```javascript
+    type MyEvents = {
+        LOADING_DONE: {
+            id: string;
+            place: string;
+        }
+    }
+
     const pubsub = createPubsub<MyEvents>();
 ```
 
