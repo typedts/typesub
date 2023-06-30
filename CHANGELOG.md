@@ -1,5 +1,11 @@
 # @typedts/typesub
 
+## 0.2.1
+
+### Patch Changes
+
+- 7fd1e6b: refactor(types): changed type definition
+
 ## 0.2.0
 
 ### Minor Changes
