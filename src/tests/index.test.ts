@@ -1,4 +1,4 @@
-import { describe, it, expectTypeOf } from "vitest";
+import { describe, it, expectTypeOf, expect } from "vitest";
 import { createPubSub } from "..";
 import { PubSub } from "../types";
 
@@ -67,4 +67,40 @@ describe("pubsub test", () => {
       email: "test@test.co",
     });
   });
+
+  it("Should get correct listener count", () => {
+    const pubusb = createPubSub<MyEvents>();
+
+    pubusb.listen('CHECKOUT', (_) => {
+    })
+
+    pubusb.listen('CHECKOUT', (_) => {
+    })
+
+    const unsub = pubusb.listen('CHECKOUT', (_) => {});
+    unsub();
+
+    expect(pubusb.getListenerCount()).toBe(2);
+  })
+
+  it("Should return correct event and listener map", () => {
+    const pubusb = createPubSub<MyEvents>();
+
+    pubusb.listen('CHECKOUT', (d) => {
+      console.log(d);
+    })
+
+    pubusb.listen('CHECKOUT', (_) => {
+    })
+
+    pubusb.listen('LOGIN', (d) => {
+      console.log(d.name + " welcome!");
+    })
+
+    const map = new Map<keyof MyEvents, number>();
+    map.set("LOGIN", 1);
+    map.set("CHECKOUT", 2);
+    
+    expect(pubusb.getEventListenerCount()).toStrictEqual(map);
+  })
 });

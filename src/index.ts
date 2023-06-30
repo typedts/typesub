@@ -27,6 +27,21 @@ export const createPubSub = <T extends Record<string, any>>(): PubSub<T> => {
 
     getListenerCount: () => {
       return listeners.length;
+    },
+
+    getListenerCountByEvent: (e) => {
+      return listeners.filter(l => l.type === e).length;
+    },
+
+    getEventListenerCount: () => {
+      const data = new Map<keyof T, number>();
+
+      for(const listener of listeners) {
+        const count = data.get(listener.type) || 0;
+        data.set(listener.type, count + 1);
+      }
+
+      return data;
     }
   };
 };

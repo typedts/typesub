@@ -7,8 +7,9 @@ export type EventValue<
 
 export type TypeOfEvents<T extends Record<string, any>> = Events<T>["type"];
 
+
 export type PubSub<T extends Record<string, any>> = {
-  publish: <E extends Events<T>["type"]>(e: E, data: EventValue<T, E>) => void;
+  publish: <E extends TypeOfEvents<T>>(e: E, data: EventValue<T, E>) => void;
 
   listen: <E extends TypeOfEvents<T>>(
     event: E,
@@ -16,6 +17,12 @@ export type PubSub<T extends Record<string, any>> = {
   ) => UnSubscribe;
 
   getListenerCount: () => number;
+
+  getListenerCountByEvent: (e: keyof T) => number;
+
+  getEventListenerCount: () => Map<
+    keyof T, number
+  >;
 };
 
 export type Events<T extends Record<string, any>> = {
