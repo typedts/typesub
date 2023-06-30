@@ -1,5 +1,11 @@
 # @typedts/typesub
 
+## 0.3.0
+
+### Minor Changes
+
+- e7fb793: feat(main): Get event listener count map
+
 ## 0.2.1
 
 ### Patch Changes
