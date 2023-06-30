@@ -23,5 +23,9 @@ export const createPubSub = <T extends Record<string, any>>(): PubSub<T> => {
         listeners = listeners.filter((l) => l.id !== id);
       };
     },
+
+    getListenerCount: () => {
+      return listeners.length;
+    }
   };
 };

@@ -16,6 +16,8 @@ export type PubSub<T extends Record<string, any>> = {
     event: E,
     handler: Handler<T, E>
   ) => UnSubscribe;
+
+  getListenerCount: () => number;
 };
 
 export type Events<T extends Record<string, any>> = {
