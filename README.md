@@ -32,14 +32,14 @@ Now you can listen on your events safely
 
 ```javascript
     pubusb.listen("LOADING_DONE", (data) => {
-    console.log(data.id);
-    console.log(data.place);
+        console.log(data.id);
+        console.log(data.place);
     });
 
     // Registering multiple listeners</span>
 
     pubusb.listen("LOADING_DONE", (data) => {
-    console.log("Second listener");
+        console.log("Second listener");
     });
 ```
 
@@ -47,8 +47,8 @@ To publish events
 
 ```javascript
     pubsub.publish("LOADING_DONE", {
-    id: "1",
-    place: "base.ts",
+        id: "1",
+        place: "base.ts",
     });
 ```
 
