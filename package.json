@@ -1,0 +1,31 @@
+{
+  "name": "@typedts/typesub",
+  "version": "0.0.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "A strongly typed basic PubSub library",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc",
+    "test": "vitest run",
+    "ci": "pnpm run lint && pnpm run test && pnpm run build",
+    "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@types/node": "^20.3.2",
+    "@types/uuid": "^9.0.2",
+    "tsup": "^7.1.0",
+    "typescript": "^5.1.6",
+    "uuid": "^9.0.0",
+    "vitest": "^0.32.2"
+  }
+}
