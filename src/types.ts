@@ -3,9 +3,7 @@ export type UnSubscribe = () => void;
 export type EventValue<
   T extends Record<string, any>,
   K extends Events<T>["type"]
-> = Extract<Events<T>, { type: K }>["value"] extends never
-  ? never
-  : Extract<Events<T>, { type: K }>["value"];
+  > = Extract<Events<T>, { type: K }>["value"];
 
 export type TypeOfEvents<T extends Record<string, any>> = Events<T>["type"];
 
