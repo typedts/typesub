@@ -1,5 +1,11 @@
 # @typedts/typesub
 
+## 0.4.0
+
+### Minor Changes
+
+- 0d9348c: fix(main): Providing helpful message when user forgets to pass a generic
+
 ## 0.3.0
 
 ### Minor Changes
