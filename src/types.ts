@@ -3,10 +3,9 @@ export type UnSubscribe = () => void;
 export type EventValue<
   T extends Record<string, any>,
   K extends Events<T>["type"]
-  > = Extract<Events<T>, { type: K }>["value"];
+> = Extract<Events<T>, { type: K }>["value"];
 
 export type TypeOfEvents<T extends Record<string, any>> = Events<T>["type"];
-
 
 export type PubSub<T extends Record<string, any>> = {
   publish: <E extends TypeOfEvents<T>>(e: E, data: EventValue<T, E>) => void;
@@ -20,9 +19,7 @@ export type PubSub<T extends Record<string, any>> = {
 
   getListenerCountByEvent: (e: keyof T) => number;
 
-  getEventListenerCount: () => Map<
-    keyof T, number
-  >;
+  getEventListenerCount: () => Map<keyof T, number>;
 };
 
 export type Events<T extends Record<string, any>> = {
