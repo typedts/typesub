@@ -1,9 +1,7 @@
 import { v4 } from "uuid";
 import { Listener, PubSub } from "./types";
 
-export const createPubSub = <
-  T = "You forgot to pass a generic in"
->(): PubSub<T> => {
+export const createPubSub = <T extends Record<string, any>>(): PubSub<T> => {
   let listeners: Listener<T, any>[] = [];
 
   return {
