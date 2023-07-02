@@ -1,5 +1,11 @@
 # @typedts/typesub
 
+## 1.0.0
+
+### Major Changes
+
+- db97247: fix(main): Providing empty object as default generic so that you cannot listen to any event
+
 ## 0.3.0
 
 ### Minor Changes
